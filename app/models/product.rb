@@ -27,5 +27,7 @@ class Product < ApplicationRecord
   def stock
     self.variants.sum(:stock)
   end
-
+  def load_colors
+    @colors = Color.pluck(:name, :id)
+  end
 end
